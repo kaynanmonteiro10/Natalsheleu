@@ -1,3 +1,6 @@
+// Detectar mobile PRIMEIRO (antes de usar em qualquer lugar)
+const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent) || window.innerWidth <= 768;
+
 // Contador Regressivo para o Natal
 function updateCountdown() {
     const christmas = new Date('December 25, 2025 00:00:00').getTime();
@@ -200,9 +203,6 @@ const videoObserver = new IntersectionObserver((entries) => {
 lazyVideos.forEach(video => {
     videoObserver.observe(video);
 });
-
-// Detectar mobile
-const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent) || window.innerWidth <= 768;
 
 // Efeito Parallax otimizado (desabilitado no mobile)
 if (!isMobile) {
