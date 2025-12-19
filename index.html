@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz Natal, Sheleu ❤️🎄</title>
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Neve animada -->
+    <div class="snowflakes" aria-hidden="true">
+        <div class="snowflake">❅</div>
+        <div class="snowflake">❆</div>
+        <div class="snowflake">❅</div>
+        <div class="snowflake">❆</div>
+        <div class="snowflake">❅</div>
+    </div>
+
+    <!-- Header -->
+    <header class="hero">
+        <h1 class="title">Feliz Natal, Sheleu 💕</h1>
+        <p class="subtitle">Um presente especial feito com amor</p>
+    </header>
+
+    <!-- Contador Regressivo -->
+    <section class="countdown-section">
+        <h2>⏰ Contagem Regressiva para o Natal</h2>
+        <div class="countdown" id="countdown">
+            <div class="time-box">
+                <span class="time" id="days">00</span>
+                <span class="label">Dias</span>
+            </div>
+            <div class="time-box">
+                <span class="time" id="hours">00</span>
+                <span class="label">Horas</span>
+            </div>
+            <div class="time-box">
+                <span class="time" id="minutes">00</span>
+                <span class="label">Minutos</span>
+            </div>
+            <div class="time-box">
+                <span class="time" id="seconds">00</span>
+                <span class="label">Segundos</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Árvore de Natal Interativa -->
+    <section class="tree-section">
+        <h2>🎄 Nossa Árvore de Desejos</h2>
+        <p class="tree-instruction">Clique nas estrelas para revelar mensagens especiais ✨</p>
+        <div class="christmas-tree">
+            <div class="star-container star-top">
+                <div class="star" data-message="Você é a melhor coisa que aconteceu na minha vida este ano ❤️">⭐</div>
+            </div>
+            <div class="tree-layer">
+                <div class="star" data-message="Cada dia ao seu lado é um presente de Deus 🙏">⭐</div>
+                <div class="star" data-message="Seu sorriso ilumina meus dias mais difíceis ☀️">⭐</div>
+            </div>
+            <div class="tree-layer">
+                <div class="star" data-message="Obrigado por me fazer acreditar no amor verdadeiro 💑">⭐</div>
+                <div class="star" data-message="Você é minha paz em meio ao caos 🕊️">⭐</div>
+                <div class="star" data-message="Cada momento com você é uma memória que guardo no coração 💝">⭐</div>
+            </div>
+            <div class="tree-layer">
+                <div class="star" data-message="Seu jeito de ser me faz querer ser melhor a cada dia 🌟">⭐</div>
+                <div class="star" data-message="Você é o meu porto seguro 🏠">⭐</div>
+                <div class="star" data-message="Te amo hoje e sempre, meu amor 💕">⭐</div>
+                <div class="star" data-message="Você é minha inspiração para aprender e crescer 📚">⭐</div>
+            </div>
+            <div class="tree-trunk"></div>
+        </div>
+        <div class="message-display" id="messageDisplay"></div>
+    </section>
+
+    <!-- Envelope com Senha e Carta -->
+    <section class="envelope-section">
+        <div class="envelope-container">
+            <!-- Envelope -->
+            <div class="envelope" id="envelopeWrapper">
+                <div class="envelope-flap"></div>
+                <div class="envelope-body">
+                    <div class="heart-seal">💌</div>
+                </div>
+            </div>
+            
+            <!-- Caixa de Senha -->
+            <div class="password-box" id="passwordBox">
+                <h3>Digite a senha para abrir a carta</h3>
+                <p class="hint">Dica: Uma data especial nossa 🗓️</p>
+                <input type="password" id="passwordInput" placeholder="ddmmaaaa" maxlength="8">
+                <button id="openEnvelope">Abrir Envelope 💕</button>
+                <p class="error-message" id="errorMessage">❌ Senha incorreta! Tente novamente.</p>
+            </div>
+
+            <!-- Carta (escondida inicialmente) -->
+            <div class="letter" id="letterContent" style="display: none;">
+                <button class="close-letter" id="closeLetter">✕ Fechar Carta</button>
+                <h2>💌 Carta para Você</h2>
+                <div class="letter-content">
+                    <p class="greeting">Meu amor, Sheleu</p>
+                    
+                    <p>Neste Natal, entre luzes, abraços e desejos de felicidade, o meu maior presente é você. Não algo que se embrulha em papel, mas algo que Deus colocou na minha vida no tempo certo, do jeito certo.</p>
+                    
+                    <p>Quando penso em tudo o que vivi neste ano, é impossível não pensar em nós. Nos nossos momentos simples, nas conversas que aquecem a alma, nos silêncios que dizem mais do que palavras e no jeito que você me faz sentir em casa, mesmo quando o mundo parece pesado demais.</p>
+                    
+                    <p>Você é paz quando eu estou cansado, é riso quando o dia foi difícil, é fé quando eu preciso acreditar mais.</p>
+                    
+                    <p>Neste Natal, eu agradeço por cada detalhe seu: pelo seu coração, pelo seu jeito, pela sua presença na minha vida. Peço a Deus que nos proteja, nos guie e fortaleça aquilo que estamos construindo, com verdade, respeito e amor.</p>
+                    
+                    <p>Que este Natal seja apenas mais um capítulo bonito da nossa história. E que, se depender de mim, nunca falte carinho, cuidado e escolha diária por você.</p>
+                    
+                    <p class="signature">Com todo o meu amor, ❤️🎄<br>— Kaynan</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galeria da Sheleu -->
+    <section class="moments-section">
+        <h2>✨ A Mulher Mais Linda do Mundo</h2>
+        <div class="moments-grid polaroid-gallery">
+            <div class="moment-card polaroid">
+                <div class="polaroid-frame">
+                    <video class="lazy-video" controls preload="none" data-src="assets/sheleylyra-20251219-0001.mp4">
+                        <source type="video/mp4">
+                    </video>
+                    <p>Seu sorriso ilumina meu dia ☀️</p>
+                </div>
+            </div>
+            <div class="moment-card polaroid">
+                <div class="polaroid-frame">
+                    <video class="lazy-video" controls preload="none" data-src="assets/sheleylyra-20251219-0002.mp4">
+                        <source type="video/mp4">
+                    </video>
+                    <p>Perfeita em cada detalhe 💎</p>
+                </div>
+            </div>
+            <div class="moment-card polaroid">
+                <div class="polaroid-frame">
+                    <video class="lazy-video" controls preload="none" data-src="assets/sheleylyra-20251219-0003.mp4">
+                        <source type="video/mp4">
+                    </video>
+                    <p>A mais bonita que já vi 😍</p>
+                </div>
+            </div>
+            <div class="moment-card polaroid">
+                <div class="polaroid-frame">
+                    <video class="lazy-video" controls preload="none" data-src="assets/sheleylyra-20251219-0004.mp4">
+                        <source type="video/mp4">
+                    </video>
+                    <p>Tão linda que parece irreal ✨</p>
+                </div>
+            </div>
+            <div class="moment-card polaroid">
+                <div class="polaroid-frame">
+                    <video class="lazy-video" controls preload="none" data-src="assets/sheleylyra-20251219-0005.mp4">
+                        <source type="video/mp4">
+                    </video>
+                    <p>Beleza que encanta 🌹</p>
+                </div>
+            </div>
+            <div class="moment-card polaroid">
+                <div class="polaroid-frame">
+                    <video class="lazy-video" controls preload="none" data-src="assets/sheleylyra-20251219-0006.mp4">
+                        <source type="video/mp4">
+                    </video>
+                    <p>Você é pura luz e alegria 🌟</p>
+                </div>
+            </div>
+            <div class="moment-card polaroid">
+                <div class="polaroid-frame">
+                    <video class="lazy-video" controls preload="none" data-src="assets/sheleylyra-20251219-0007.mp4">
+                        <source type="video/mp4">
+                    </video>
+                    <p>Linda por dentro e por fora 💕</p>
+                </div>
+            </div>
+            <div class="moment-card polaroid">
+                <div class="polaroid-frame">
+                    <video class="lazy-video" controls preload="none" data-src="assets/sheleylyra-20251219-0008.mp4">
+                        <source type="video/mp4">
+                    </video>
+                    <p>Sua beleza me hipnotiza 🦋</p>
+                </div>
+            </div>
+            <div class="moment-card polaroid">
+                <div class="polaroid-frame">
+                    <video class="lazy-video" controls preload="none" data-src="assets/sheleylyra-20251219-0009.mp4">
+                        <source type="video/mp4">
+                    </video>
+                    <p>Simplesmente deslumbrante 🌸</p>
+                </div>
+            </div>
+            <div class="moment-card polaroid">
+                <div class="polaroid-frame">
+                    <video class="lazy-video" controls preload="none" data-src="assets/sheleylyra-20251219-0010.mp4">
+                        <source type="video/mp4">
+                    </video>
+                    <p>Minha estrela mais brilhante ⭐</p>
+                </div>
+            </div>
+            <div class="moment-card polaroid">
+                <div class="polaroid-frame">
+                    <video class="lazy-video" controls preload="none" data-src="assets/sheleylyra-20251219-0011.mp4">
+                        <source type="video/mp4">
+                    </video>
+                    <p>Doce e encantadora 🍬</p>
+                </div>
+            </div>
+            <div class="moment-card polaroid">
+                <div class="polaroid-frame">
+                    <video class="lazy-video" controls preload="none" data-src="assets/sheleylyra-20251219-0012.mp4">
+                        <source type="video/mp4">
+                    </video>
+                    <p>A dona do meu coração ❤️</p>
+                </div>
+            </div>
+            <div class="moment-card polaroid">
+                <div class="polaroid-frame">
+                    <img src="assets/sheleylyra-20251219-0001.jpg" alt="Sheleu" loading="lazy">
+                    <p>Obra-prima perfeita 👑</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 100 Razões Porque Te Amo -->
+    <section class="reasons-section">
+        <h2>💕 Razões Porque Te Amo</h2>
+        <div class="reasons-container">
+            <div class="reason-display" id="reasonDisplay">
+                <p class="reason-text" id="reasonText">Clique no botão para descobrir uma razão ❤️</p>
+                <span class="reason-number" id="reasonNumber"></span>
+            </div>
+            <button class="reason-button" id="reasonButton">💝 Gerar Razão</button>
+        </div>
+    </section>
+
+    <!-- Nossos Sonhos -->
+    <section class="dreams-section">
+        <h2>✨ Nossos Sonhos e Promessas</h2>
+        <p class="dreams-subtitle">Escreva aqui nossos sonhos e promessas para o futuro. Volte depois para ver se realizamos! 💫</p>
+        
+        <div class="dreams-container">
+            <div class="dream-box">
+                <h3>💭 Sonhos do Kaynan</h3>
+                <textarea id="kaynanDreams" placeholder="Escreva seus sonhos aqui...&#10;&#10;Exemplo:&#10;- Viajar para Paris com você&#10;- Construir nossa casa&#10;- Te fazer feliz todos os dias"></textarea>
+                <button class="save-dream-btn" onclick="saveDreams('kaynan')">💾 Salvar Sonhos</button>
+            </div>
+            
+            <div class="dream-box">
+                <h3>💭 Sonhos da Sheleu</h3>
+                <textarea id="sheleuDreams" placeholder="Escreva seus sonhos aqui...&#10;&#10;Exemplo:&#10;- Formar uma família linda&#10;- Ter nosso cantinho&#10;- Crescer juntos"></textarea>
+                <button class="save-dream-btn" onclick="saveDreams('sheleu')">💾 Salvar Sonhos</button>
+            </div>
+        </div>
+
+        <div class="dreams-container">
+            <div class="dream-box full-width">
+                <h3>🤝 Nossas Promessas</h3>
+                <textarea id="ourPromises" placeholder="Escreva as promessas que fazemos um para o outro...&#10;&#10;Exemplo:&#10;- Sempre nos apoiar&#10;- Nunca dormir brigados&#10;- Celebrar cada conquista juntos"></textarea>
+                <button class="save-dream-btn" onclick="saveDreams('promises')">💾 Salvar Promessas</button>
+            </div>
+        </div>
+        
+        <p class="dreams-note">💡 Seus sonhos ficam salvos no navegador e podem ser atualizados a qualquer momento!</p>
+    </section>
+
+    <!-- Playlist do Spotify -->
+    <section class="music-section">
+        <h2>🎵 Nossa Playlist</h2>
+        <p class="music-description">Comecei a escutar mais em inglês para aprender e te orgulhar, meu amor ❤️</p>
+        <div class="spotify-container">
+            <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/playlist/6jx7Ky135NLMjViFrJTJ1t?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>Feito com muito amor por Kaynan para Sheleu</p>
+        <p>Natal 2025 🎄</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
