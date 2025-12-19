@@ -63,10 +63,10 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Animação de entrada dos elementos
+// Animação de entrada dos elementos (simplificada no mobile)
 const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
+    threshold: isMobile ? 0.05 : 0.1,
+    rootMargin: isMobile ? '0px 0px 0px 0px' : '0px 0px -50px 0px'
 };
 
 const observer = new IntersectionObserver(function(entries) {
@@ -82,8 +82,8 @@ const observer = new IntersectionObserver(function(entries) {
 // Aplicar animação de entrada a todas as seções
 document.querySelectorAll('section').forEach(section => {
     section.style.opacity = '0';
-    section.style.transform = 'translateY(50px)';
-    section.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+    section.style.transform = isMobile ? 'translateY(20px)' : 'translateY(50px)';
+    section.style.transition = isMobile ? 'opacity 0.5s ease, transform 0.5s ease' : 'opacity 0.8s ease, transform 0.8s ease';
     observer.observe(section);
 });
 
@@ -194,34 +194,45 @@ const videoObserver = new IntersectionObserver((entries) => {
         }
     });
 }, {
-    rootMargin: '50px'
+    rootMargin: '100px' // Aumentado para carregar antes
 });
 
 lazyVideos.forEach(video => {
     videoObserver.observe(video);
 });
 
-// Efeito Parallax otimizado (com throttle)
-let ticking = false;
+// Detectar mobile
+const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent) || window.innerWidth <= 768;
 
-function updateParallax() {
-    const scrolled = window.pageYOffset;
-    const parallaxElements = document.querySelectorAll('.hero, .title');
-    
-    parallaxElements.forEach(element => {
-        const speed = 0.5;
-        element.style.transform = `translateY(${scrolled * speed}px)`;
+// Efeito Parallax otimizado (desabilitado no mobile)
+if (!isMobile) {
+    let ticking = false;
+
+    function updateParallax() {
+        const scrolled = window.pageYOffset;
+        const parallaxElements = document.querySelectorAll('.hero, .title');
+        
+        parallaxElements.forEach(element => {
+            const speed = 0.5;
+            element.style.transform = `translateY(${scrolled * speed}px)`;
+        });
+        
+        ticking = false;
+    }
+
+    window.addEventListener('scroll', function() {
+        if (!ticking) {
+            window.requestAnimationFrame(updateParallax);
+            ticking = true;
+        }
     });
-    
-    ticking = false;
 }
 
-window.addEventListener('scroll', function() {
-    if (!ticking) {
-        window.requestAnimationFrame(updateParallax);
-        ticking = true;
-    }
-});
+// Desabilitar criação de corações no mobile
+if (!isMobile) {
+    // Criar corações periodicamente (a cada 5 segundos para melhor performance)
+    setInterval(createHeart, 5000);
+}
 
 // 100 Razões Porque Te Amo
 const reasons = [
