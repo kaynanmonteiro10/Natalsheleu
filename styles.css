@@ -14,6 +14,13 @@ body {
     overflow-x: hidden;
 }
 
+@media (max-width: 768px) {
+    body {
+        animation: none;
+        background: #1a0000;
+    }
+}
+
 @keyframes gradientShift {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
@@ -29,6 +36,13 @@ body {
     height: 100%;
     pointer-events: none;
     z-index: 9999;
+}
+
+/* Desabilitar neve no mobile */
+@media (max-width: 768px) {
+    .snowflakes {
+        display: none;
+    }
 }
 
 .snowflake {
@@ -104,6 +118,12 @@ body {
     animation: rotate 30s linear infinite;
 }
 
+@media (max-width: 768px) {
+    .hero::before {
+        display: none;
+    }
+}
+
 @keyframes rotate {
     from { transform: rotate(0deg); }
     to { transform: rotate(360deg); }
@@ -123,6 +143,14 @@ body {
     will-change: text-shadow;
     position: relative;
     z-index: 1;
+}
+
+@media (max-width: 768px) {
+    .title {
+        font-size: 2em;
+        text-shadow: 0 0 10px #fff, 0 0 20px #ff0000;
+        animation: none;
+    }
 }
 
 @keyframes glow {
@@ -155,6 +183,15 @@ section {
     border: 1px solid rgba(255, 0, 0, 0.3);
 }
 
+@media (max-width: 768px) {
+    section {
+        backdrop-filter: blur(5px);
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+        padding: 20px 10px;
+        margin: 30px auto;
+    }
+}
+
 section h2 {
     text-align: center;
     font-size: 2.5em;
@@ -164,6 +201,13 @@ section h2 {
                  0 0 20px #fff,
                  0 0 30px #ff0000,
                  0 0 40px #ff0000;
+}
+
+@media (max-width: 768px) {
+    section h2 {
+        font-size: 1.8em;
+        text-shadow: 0 0 10px #fff, 0 0 15px #ff0000;
+    }
 }
 
 /* Contador Regressivo */
@@ -582,6 +626,18 @@ section h2 {
     z-index: 10;
 }
 
+@media (max-width: 768px) {
+    .polaroid {
+        transform: rotate(0deg) !important;
+        transition: none;
+    }
+    
+    .polaroid:hover {
+        transform: none !important;
+        box-shadow: 0 10px 30px rgba(220, 20, 60, 0.6);
+    }
+}
+
 .polaroid-frame {
     position: relative;
 }
@@ -594,6 +650,13 @@ section h2 {
     background: #000;
     display: block;
     border: none;
+}
+
+@media (max-width: 768px) {
+    .polaroid video,
+    .polaroid img {
+        height: 180px;
+    }
 }
 
 .polaroid p {
@@ -823,29 +886,33 @@ section h2 {
 
 /* Responsividade */
 @media (max-width: 768px) {
-    .title {
-        font-size: 2.5em;
+    .hero {
+        padding: 40px 10px;
     }
 
     .subtitle {
-        font-size: 1.2em;
+        font-size: 1.1em;
     }
 
-    section h2 {
-        font-size: 2em;
+    .countdown {
+        gap: 10px;
     }
 
     .time-box {
-        min-width: 80px;
-        padding: 20px;
+        min-width: 70px;
+        padding: 15px 10px;
     }
 
     .time {
         font-size: 2em;
     }
+    
+    .label {
+        font-size: 0.8em;
+    }
 
     .letter {
-        padding: 30px 20px;
+        padding: 30px 15px;
     }
 
     .letter-content {
@@ -853,7 +920,7 @@ section h2 {
     }
 
     .star {
-        font-size: 2em;
+        font-size: 1.8em;
     }
 
     .tree-layer {
@@ -862,6 +929,31 @@ section h2 {
 
     .moments-grid {
         grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .reason-display {
+        padding: 30px 20px;
+        min-height: 150px;
+    }
+    
+    .reason-text {
+        font-size: 1.2em;
+    }
+    
+    .reason-button {
+        padding: 15px 30px;
+        font-size: 1.1em;
+    }
+    
+    .dream-box textarea {
+        min-height: 150px;
+        font-size: 1em;
+    }
+    
+    /* Desabilitar will-change no mobile */
+    * {
+        will-change: auto !important;
     }
 }
 
